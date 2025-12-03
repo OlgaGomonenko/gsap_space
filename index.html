@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Particles | Портфолио</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Добро пожаловать в <span class="highlight">космос</span> кода</h1>
+            <p class="subtitle">Интерактивная анимация на GSAP</p>
+        </header>
+        
+        <main>
+            <!-- Частицы (звёзды с интерактивом) -->
+            <div class="particles-section">
+                <h2>Интерактивные звёзды</h2>
+                <p class="subtitle">Наведите курсор и покрутите колесико</p>
+                <div id="particles-container"></div>
+            </div>
+            
+            <!-- Кометы -->
+            <div class="comets-section">
+                <h2>Анимация комет</h2>
+                <p class="subtitle">Широкие светящиеся хвосты</p>
+                <div id="comets-container"></div>
+            </div>
+            
+            <!-- Описание -->
+            <div class="portfolio-card">
+                <h2>О проекте</h2>
+                <p>Анимация создана с помощью <strong>GSAP 3</strong></p>
+                <p><strong>Что использовано:</strong></p>
+                <ul>
+                    <li>GSAP Core для анимации свойств</li>
+                    <li>Создание и управление сотнями DOM-элементов</li>
+                    <li>Интерактивность (курсор, колесо мыши)</li>
+                    <li>Плавные цветовые переходы и эффекты свечения</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="script.js"></script>
+    <script src="comets.js"></script>
+</body>
+</html>

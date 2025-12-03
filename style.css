@@ -1,0 +1,500 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    text-align: left;
+    margin-left: 25px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a16;
+    color: #e0e0ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #8a2be2, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+}
+
+.highlight {
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #a0a0ff;
+    opacity: 0.9;
+}
+
+/* ===== SECTIONS COMMON STYLES ===== */
+.particles-section,
+.comets-section,
+.portfolio-card {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(15, 15, 35, 0.85);
+    border-radius: 15px;
+    border: 1px solid rgba(100, 100, 255, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.particles-section h2,
+.comets-section h2,
+.portfolio-card h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.particles-section h2 {
+    color: #8a2be2;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+
+.comets-section h2 {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.portfolio-card h2 {
+    color: #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.particles-section .subtitle,
+.comets-section .subtitle {
+    text-align: center;
+    color: #a0a0ff;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+/* ===== PARTICLES CONTAINER (интерактивные звёзды) ===== */
+#particles-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background: 
+        radial-gradient(
+            ellipse at center,
+            rgba(10, 10, 30, 0.95) 0%,
+            rgba(5, 5, 20, 0.98) 60%,
+            rgba(0, 0, 10, 1) 100%
+        );
+    border: 1px solid rgba(138, 43, 226, 0.25);
+    border-radius: 10px;
+    box-shadow: 
+        inset 0 0 60px rgba(138, 43, 226, 0.15),
+        0 0 40px rgba(138, 43, 226, 0.1);
+    margin: 0;
+    cursor: grab;
+}
+
+/* ===== COMETS CONTAINER (кометы с фоновыми звёздами) ===== */
+#comets-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background: 
+        radial-gradient(
+            ellipse at center,
+            rgba(10, 10, 30, 0.98) 0%,
+            rgba(5, 5, 20, 0.99) 70%,
+            rgba(0, 0, 10, 1) 100%
+        );
+    border: 1px solid rgba(0, 150, 255, 0.25);
+    border-radius: 10px;
+    box-shadow: 
+        inset 0 0 40px rgba(0, 50, 150, 0.1),
+        0 0 30px rgba(0, 50, 200, 0.05);
+    margin: 0;
+}
+
+/* ===== DIFFERENT TYPES OF STARS ===== */
+
+/* Интерактивные частицы (в первом блоке) */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    pointer-events: none;
+    transform-origin: center;
+    will-change: transform, opacity;
+    z-index: 10;
+}
+
+/* Фоновые звёзды для комет (во втором блоке) */
+.background-star {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    will-change: opacity, transform;
+}
+
+/* ===== PORTFOLIO CARD ===== */
+.portfolio-card {
+    text-align: center;
+}
+
+.portfolio-card p {
+    font-size: 1.1rem;
+    color: #e0e0ff;
+    margin-top: 15px;
+}
+
+.portfolio-card strong {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+/* ===== PERFORMANCE OPTIMIZATION ===== */
+.particle,
+.background-star {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform-style: preserve-3d;
+    image-rendering: optimizeSpeed;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .particles-section,
+    .comets-section,
+    .portfolio-card {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    .particles-section h2,
+    .comets-section h2,
+    .portfolio-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    #particles-container,
+    #comets-container {
+        height: 300px;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    #particles-container,
+    #comets-container {
+        height: 250px;
+    }
+    
+    .particles-section h2,
+    .comets-section h2,
+    .portfolio-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ===== DEBUG STYLES ===== */
+.debug-mode .background-star {
+    border: 1px solid #ffff00 !important;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    #particles-container,
+    #comets-container {
+        display: none;
+    }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) {
+    .background-star {
+        animation: none !important;
+    }
+}
+
+/* ===== CURSOR STYLES ===== */
+#particles-container.grabbing {
+    cursor: grabbing;
+}
+
+/* ===== SMOOTH SCROLLING ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== FOCUS STATES FOR ACCESSIBILITY ===== */
+:focus {
+    outline: 2px solid #00ffff;
+    outline-offset: 2px;
+}
+
+/* ===== LOADING STATE ===== */
+.loading::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a16;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffff;
+    font-size: 1.5rem;
+}
+
+/* ===== SELECTION STYLES ===== */
+::selection {
+    background-color: rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background-color: rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+/* ===== SCROLLBAR STYLES ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 10, 30, 0.8);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8a2be2, #00ffff);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #9a3cf2, #10ffff);
+}
+
+/* ===== КОНТЕЙНЕР КОМЕТЫ (единый элемент) ===== */
+.comet-container {
+    position: absolute;
+    transform-origin: left center;
+    will-change: transform, opacity;
+}
+
+/* ===== ХВОСТ КОМЕТЫ (один треугольник) ===== */
+.comet-tail {
+    position: absolute;
+    filter: blur(8px);
+    opacity: 0.85;
+    transform-origin: left center;
+    mix-blend-mode: screen;
+    will-change: opacity;
+}
+
+/* ===== ГОЛОВА КОМЕТЫ ===== */
+.comet-head {
+    position: absolute;
+    border-radius: 50%;
+    filter: brightness(2.2);
+    z-index: 10;
+    will-change: transform, filter;
+}
+
+/* ===== АДАПТИВНОСТЬ ДЛЯ КОМЕТ ===== */
+@media (max-width: 768px) {
+    .comet-container {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    
+    .comet-tail {
+        filter: blur(6px);
+    }
+}
+
+@media (max-width: 480px) {
+    .comet-container {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+    
+    .comet-tail {
+        filter: blur(5px);
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .comet-head {
+        animation: none !important;
+    }
+    
+    .comet-tail {
+        animation: none !important;
+    }
+}
+
+/* ===== КОМЕТЫ - ФИНАЛЬНЫЕ СТИЛИ ===== */
+
+/* Контейнер кометы */
+.comet {
+    position: absolute;
+    transform-origin: left center;
+    will-change: transform, opacity, filter;
+    transition: opacity 0.3s ease;
+}
+
+/* Хвост кометы */
+.comet-tail {
+    position: absolute;
+    transform-origin: right center;
+    mix-blend-mode: plus-lighter;
+    will-change: opacity, filter, transform;
+}
+
+/* Голова кометы */
+.comet-head {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform, filter, opacity;
+    transition: filter 0.3s ease;
+}
+
+/* Ореол головы */
+.comet-head-glow {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: plus-lighter;
+    will-change: opacity, transform;
+    pointer-events: none;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .comet {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    
+    .comet-tail {
+        filter: blur(8px) !important;
+    }
+    
+    .comet-head {
+        filter: blur(1.2px) !important;
+    }
+    
+    .comet-head-glow {
+        filter: blur(6px) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .comet {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    
+    .comet-tail {
+        filter: blur(6px) !important;
+    }
+    
+    .comet-head {
+        filter: blur(1px) !important;
+    }
+    
+    .comet-head-glow {
+        filter: blur(5px) !important;
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .comet-head,
+    .comet-tail,
+    .comet-head-glow {
+        animation: none !important;
+    }
+}
+
+/* ===== ФОНОВЫЕ ЗВЁЗДЫ В БЛОКЕ КОМЕТ ===== */
+#comets-container .background-star {
+    animation: starTwinkle 4s ease-in-out infinite;
+    will-change: opacity;
+}
+
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* ===== УБЕДИТЕСЬ, ЧТО ЗВЁЗДЫ НЕ ПЕРЕКРЫВАЮТ КОМЕТЫ ===== */
+.background-star {
+    z-index: 1 !important;  /* Звёзды под кометами */
+}
+
+.comet {
+    z-index: 100 !important; /* Кометы над звёздами */
+}
+
+.comet-head {
+    z-index: 10 !important;
+}
+
+.comet-tail {
+    z-index: 1 !important;
+}
+
+.comet-head-glow {
+    z-index: 5 !important;
+}
